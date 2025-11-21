@@ -27,7 +27,10 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    // Only redirect to login if 401 and NOT already on login/register page
+    if (error.response?.status === 401 && 
+        !window.location.pathname.includes('/login') && 
+        !window.location.pathname.includes('/register')) {
       localStorage.removeItem('token')
       window.location.href = '/login'
     }
