@@ -38,7 +38,12 @@ export default function Login() {
       toast.success('Login successful!')
       navigate('/dashboard')
     } catch (error) {
-      toast.error(error.response?.data?.detail || 'Login failed')
+      console.error('Login error:', error)
+      const errorMessage = error.response?.data?.detail || 'Login failed. Please check your credentials.'
+      toast.error(errorMessage, {
+        duration: 4000,
+        position: 'top-center',
+      })
     } finally {
       setLoading(false)
     }

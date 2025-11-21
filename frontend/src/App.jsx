@@ -52,6 +52,7 @@ function App() {
           <Route path="create" element={<CreateProject />} />
           <Route path="project/:id" element={<ProjectEditor />} />
         </Route>
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   )

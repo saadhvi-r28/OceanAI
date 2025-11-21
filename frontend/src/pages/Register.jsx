@@ -43,10 +43,17 @@ export default function Register() {
         email: formData.email,
         password: formData.password,
       })
-      toast.success('Registration successful! Please login.')
+      toast.success('Registration successful! Please login.', {
+        duration: 4000,
+      })
       navigate('/login')
     } catch (error) {
-      toast.error(error.response?.data?.detail || 'Registration failed')
+      console.error('Registration error:', error)
+      const errorMessage = error.response?.data?.detail || 'Registration failed. Please try again.'
+      toast.error(errorMessage, {
+        duration: 4000,
+        position: 'top-center',
+      })
     } finally {
       setLoading(false)
     }
