@@ -21,10 +21,11 @@ class GeminiService:
         await self._rate_limit()
         
         if document_type == "docx":
-            prompt = f"""Generate {num_sections} section headers for a professional document about: {topic}
+            prompt = f"""Generate {num_sections} section headers for a professional document with the title: "{topic}"
 
+Focus on creating sections that directly support and expand on the project title.
 Return ONLY the section headers, one per line, without numbering or additional formatting.
-Make them clear, specific, and well-structured for a comprehensive document.
+Make them clear, specific, and well-structured.
 
 Example format:
 Introduction
@@ -32,8 +33,9 @@ Background and Context
 Key Findings
 etc."""
         else:  # pptx
-            prompt = f"""Generate {num_sections} slide titles for a professional PowerPoint presentation about: {topic}
+            prompt = f"""Generate {num_sections} slide titles for a professional PowerPoint presentation with the title: "{topic}"
 
+Focus on creating slides that directly support and expand on the presentation title.
 Return ONLY the slide titles, one per line, without numbering or additional formatting.
 IMPORTANT: Each title must be maximum 5 words - keep them concise and impactful for slide headings.
 
@@ -73,17 +75,18 @@ etc."""
         await self._rate_limit()
         
         if document_type == "docx":
-            prompt = f"""Write detailed, professional content for the following section of a document about "{topic}":
+            prompt = f"""Write detailed, professional content for the following section of a document titled "{topic}":
 
 Section: {section_title}
 
 {f"Document context: {project_context}" if project_context else ""}
 
 Write 2-3 well-structured paragraphs with clear, informative content.
-Use professional language and ensure the content is comprehensive and relevant to the section title.
+Focus on how this section supports the document title: "{topic}"
+Use professional language and ensure the content is comprehensive and relevant.
 Do not include the section title in your response."""
         else:  # pptx
-            prompt = f"""Create content for the following PowerPoint slide about "{topic}":
+            prompt = f"""Create content for the following PowerPoint slide in a presentation titled "{topic}":
 
 Slide Title: {section_title}
 
@@ -92,7 +95,8 @@ Slide Title: {section_title}
 Provide:
 1. 3-5 concise bullet points
 2. Keep each point clear and impactful
-3. Use professional presentation language
+3. Focus on how this slide supports the presentation title: "{topic}"
+4. Use professional presentation language
 
 Format as bullet points with • symbol.
 Do not include the slide title in your response."""

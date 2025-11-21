@@ -162,7 +162,7 @@ export default function CreateProject() {
             value={formData.topic}
             onChange={handleChange}
             required
-            placeholder="e.g., A market analysis of the EV industry in 2025"
+            placeholder="e.g., Market Analysis of the EV Industry in 2025"
           />
 
           <div>
@@ -180,31 +180,6 @@ export default function CreateProject() {
             />
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
               Choose how many {formData.document_type === 'docx' ? 'sections' : 'slides'} to generate (1-20)
-            </p>
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              Presentation Color Theme
-            </label>
-            <select
-              name="color_theme"
-              value={formData.color_theme}
-              onChange={handleChange}
-              className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-purple-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 dark:focus:ring-orange-500 focus:border-transparent transition-all text-gray-900 dark:text-gray-100"
-            >
-              <option value="blue_purple">🌌 Deep Blue & Purple - Professional & Bold</option>
-              <option value="green_teal">🌊 Ocean Teal & Emerald - Fresh & Modern</option>
-              <option value="orange_red">🔥 Crimson & Orange - Energetic & Powerful</option>
-              <option value="navy_gold">✨ Navy & Gold - Elegant & Luxurious</option>
-              <option value="pink_purple">💎 Magenta & Purple - Creative & Vibrant</option>
-              <option value="forest_sage">🌲 Forest & Sage - Natural & Calm</option>
-              <option value="sunset">🌅 Sunset - Warm & Sophisticated</option>
-              <option value="ocean">🌊 Ocean Blue - Deep & Trustworthy</option>
-              <option value="slate">🏔️ Slate Gray - Modern & Minimal</option>
-            </select>
-            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-              Choose a professional color theme for your presentation slides
             </p>
           </div>
 
